@@ -1,0 +1,27 @@
+{
+  "name": "dummyhtml",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "dummyhtml": "bin/dummyhtml.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazhashimoto/dummyhtml.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kazhashimoto/dummyhtml/issues"
+  },
+  "homepage": "https://github.com/kazhashimoto/dummyhtml#readme",
+  "dependencies": {
+    "commander": "^8.1.0",
+    "debug": "^4.3.2"
+  }
+}
