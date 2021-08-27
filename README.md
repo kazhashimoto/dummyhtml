@@ -31,6 +31,16 @@ Options:
   -h, --help     display help for command
 ```
 
+```
+$ dummyhtml index.html
+$ dummyhtml https://www.example.com/ > sample.html
+$ echo "<nav><ul><li></li></ul></nav>" | dummyhtml
+$ emmet "div>(header>ul>li*2>a)+footer>p" | dummyhtml --fill > a.html
+```
+
+上記の最後の例は、コマンドラインインターフェイスの`emmet`パッケージを使用しています。https://github.com/Delapouite/emmet-cli
+
+
 ## Turning on debug mode
 ```
 $ DEBUG=* dummyhtml [options] htmlpath
