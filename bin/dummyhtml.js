@@ -18,11 +18,11 @@ config.dummy.site = `${config.dummy.server}/${config.dummy.baseDir}`
 
 program
   .name('dummyhtml.js')
-  .version('0.1.0')
+  .version('1.0.2')
   .usage('[options] htmlpath')
   .showHelpAfterError()
   .option('-a, --all', 'output all element nodes')
-  .option('-d, --dummy', 'insert dummy text and links')
+  .option('-t, --tree', 'output dom tree only')
   .option('--no-head', 'remove html head from output')
   .option('--head <path>', 'include html head from template file')
   .option('--placeholder', 'embed placeholder images')
@@ -31,7 +31,7 @@ program
 
 program.parse(process.argv);
 const options = program.opts();
-if (options.dummy) {
+if (!options.tree) {
   options.all = false;
 }
 debug('options', options);
@@ -51,7 +51,7 @@ const default_html_head =
 </head>
 `;
 
-if (options.dummy && options.head) {
+if (!options.tree && options.head) {
   if (options.head === true) {
     head = default_html_head;
   } else {
@@ -75,12 +75,12 @@ if (/^https?:\/{2}/.test(htmlPath)) {
 
 reader.then(dom => {
   const { document } = dom.window;
-  if (options.dummy && options.head) {
+  if (!options.tree && options.head) {
     process.stdout.write(head);
   }
   writeNode(document.body, 0);
   process.stdout.write('\n');
-  if (options.dummy && options.head) {
+  if (!options.tree && options.head) {
     process.stdout.write('</html>\n');
   }
 })
@@ -447,7 +447,7 @@ function writeNode(node, depth) {
     state = WRT_STATE.LINE_OPENED;
   }
   let attr = '';
-  if (options.dummy && node.hasAttributes()) {
+  if (!options.tree && node.hasAttributes()) {
     attr = getDummyAttributes(node);
   }
   process.stdout.write(`<${tag}${attr}>`);
@@ -458,7 +458,7 @@ function writeNode(node, depth) {
   let reduced = true;
   let fill = false;
   let child;
-  if (options.dummy) {
+  if (!options.tree) {
     let dx = text_count_log.length;
     child = node.firstChild;
     if (options.fill && !child) {
