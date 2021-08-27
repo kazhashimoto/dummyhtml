@@ -22,7 +22,7 @@ Usage: dummyhtml [options] htmlpath
 Options:
   -V, --version  output the version number
   -a, --all      output all element nodes
-  -d, --dummy    insert dummy text and links
+  -t, --tree     output dom tree only
   --no-head      remove html head from output
   --head <path>  include html head from template file
   --placeholder  embed placeholder images
