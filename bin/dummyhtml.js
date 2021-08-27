@@ -17,7 +17,7 @@ config.dummy.server = 'https://www.example.com';
 config.dummy.site = `${config.dummy.server}/${config.dummy.baseDir}`
 
 program
-  .name('dummyhtml.js')
+  .name('dummyhtml')
   .version('1.0.2')
   .usage('[options] htmlpath')
   .showHelpAfterError()
