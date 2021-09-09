@@ -1,6 +1,6 @@
 {
   "name": "@kazhashimoto/dummyhtml",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -23,7 +23,8 @@
   "homepage": "https://github.com/kazhashimoto/dummyhtml#readme",
   "dependencies": {
     "commander": "^8.1.0",
-    "debug": "^4.3.2"
+    "debug": "^4.3.2",
+    "jsdom": "^17.0.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0"
